@@ -12,8 +12,13 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.label :first_name, style: "display: block" %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div>
+    <%= form.label :last_name, style: "display: block" %>
+    <%= form.text_field :last_name %>
   </div>
 
   <div>
@@ -34,6 +39,11 @@
   <div>
     <%= form.label :graduation_date, style: "display: block" %>
     <%= form.date_field :graduation_date %>
+  </div>
+
+  <div>
+  <%= form.label :profile_pic %>
+  <%= form.file_field :profile_pic %>
   </div>
 
   <div>
