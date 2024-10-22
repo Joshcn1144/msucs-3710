@@ -10,6 +10,11 @@
       </ul>
     </div>
   <% end %>
+  
+  <div>
+    <%= form.label :major, style: "display:block" %>
+    <%= form.select :major, options_for_select(Student:: VALID_MAJORS), { prompt: "Select a Major" }, class: "form-control" %>
+  </div>
 
   <div>
     <%= form.label :first_name, style: "display: block" %>

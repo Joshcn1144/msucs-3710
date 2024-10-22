@@ -3,7 +3,25 @@ class StudentsController < ApplicationController
 
   # GET /students or /students.json
   def index
+    Rails.logger.info "Params: #{params.inspect}"
+    
+    @search_params = params[:search] || {}
     @students = Student.all
+
+    Rails.logger.info "Search Params: #{@search_params.inspect}"
+
+    if @search_params[:majors].present?
+      @students = @students.where(major: @search_params[:majors])
+    end
+    if @search_params[:graduation_date].present? && @search_params[:date_filter].present?
+      date = @search_params[:graduation_date].to_date
+
+      if @search_params[:date_filter] == "before"
+        @students = @students.where("graduation_date < ?", date)
+      elsif @search_params[:date_filter] == "after"
+        @students = @students.where("graduation_date > ?", date)
+      end
+    end
   end
 
   # GET /students/1 or /students/1.json
