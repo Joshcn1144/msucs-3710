@@ -13,7 +13,7 @@
     <%= form.label :graduation_date, "Date", class: "form-label" %>
     <%= form.date_field :graduation_date, name: 'search[graduation_date]', class: "form-control" %>
     <div>
-      <%= form.submit "Search", class: "btn btn-primary" %>
+      <%= form.submit "Search", class: "btn btn-primary", aria: { label: "Search" } %>
       <%= link_to "Show All", students_path, class: "btn btn-secondary" %>
     </div>
    <% end %>
